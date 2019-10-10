@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87C3178FEEF325DD1A25A9B5 /* Pods_Proximity_Reminders_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5EA7DDBAC47D3480D67B802 /* Pods_Proximity_Reminders_App.framework */; };
 		9AB1C3C12343D03600DEA1CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1C3C02343D03600DEA1CB /* AppDelegate.swift */; };
 		9AB1C3C32343D03600DEA1CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1C3C22343D03600DEA1CB /* ViewController.swift */; };
 		9AB1C3C62343D03600DEA1CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AB1C3C42343D03600DEA1CB /* Main.storyboard */; };
 		9AB1C3C92343D03600DEA1CB /* Proximity_Reminders_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1C3C72343D03600DEA1CB /* Proximity_Reminders_App.xcdatamodeld */; };
 		9AB1C3CB2343D03800DEA1CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AB1C3CA2343D03800DEA1CB /* Assets.xcassets */; };
 		9AB1C3CE2343D03800DEA1CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AB1C3CC2343D03800DEA1CB /* LaunchScreen.storyboard */; };
+		9AED415C234514E9008D658F /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AED415B234514E9008D658F /* ReminderViewController.swift */; };
+		9AED415E2347B4D2008D658F /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AED415D2347B4D2008D658F /* Reminder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		40496A4C0A5732F9662F6715 /* Pods-Proximity Reminders App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Proximity Reminders App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Proximity Reminders App/Pods-Proximity Reminders App.release.xcconfig"; sourceTree = "<group>"; };
+		9A791536234D7CB10050D2D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AB1C3BD2343D03600DEA1CB /* Proximity Reminders App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Proximity Reminders App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AB1C3C02343D03600DEA1CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AB1C3C22343D03600DEA1CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -23,7 +28,10 @@
 		9AB1C3C82343D03600DEA1CB /* Proximity_Reminders_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Proximity_Reminders_App.xcdatamodel; sourceTree = "<group>"; };
 		9AB1C3CA2343D03800DEA1CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9AB1C3CD2343D03800DEA1CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9AB1C3CF2343D03800DEA1CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AED415B234514E9008D658F /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
+		9AED415D2347B4D2008D658F /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		D2D0DE11EF458A495802B8B0 /* Pods-Proximity Reminders App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Proximity Reminders App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Proximity Reminders App/Pods-Proximity Reminders App.debug.xcconfig"; sourceTree = "<group>"; };
+		D5EA7DDBAC47D3480D67B802 /* Pods_Proximity_Reminders_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Proximity_Reminders_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +39,65 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87C3178FEEF325DD1A25A9B5 /* Pods_Proximity_Reminders_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		623F18E406F04C770E6D174C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D2D0DE11EF458A495802B8B0 /* Pods-Proximity Reminders App.debug.xcconfig */,
+				40496A4C0A5732F9662F6715 /* Pods-Proximity Reminders App.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		814D0F410EAF9D945B6041FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5EA7DDBAC47D3480D67B802 /* Pods_Proximity_Reminders_App.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A791530234D78500050D2D0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9AB1C3C22343D03600DEA1CB /* ViewController.swift */,
+				9AED415B234514E9008D658F /* ReminderViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9A791531234D78600050D2D0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9AB1C3C72343D03600DEA1CB /* Proximity_Reminders_App.xcdatamodeld */,
+				9AED415D2347B4D2008D658F /* Reminder.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9A791532234D786D0050D2D0 /* HelpingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				9AB1C3C02343D03600DEA1CB /* AppDelegate.swift */,
+				9AB1C3CA2343D03800DEA1CB /* Assets.xcassets */,
+				9AB1C3CC2343D03800DEA1CB /* LaunchScreen.storyboard */,
+			);
+			path = HelpingFiles;
+			sourceTree = "<group>";
+		};
 		9AB1C3B42343D03600DEA1CB = {
 			isa = PBXGroup;
 			children = (
 				9AB1C3BF2343D03600DEA1CB /* Proximity Reminders App */,
 				9AB1C3BE2343D03600DEA1CB /* Products */,
+				623F18E406F04C770E6D174C /* Pods */,
+				814D0F410EAF9D945B6041FE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,13 +112,11 @@
 		9AB1C3BF2343D03600DEA1CB /* Proximity Reminders App */ = {
 			isa = PBXGroup;
 			children = (
-				9AB1C3C02343D03600DEA1CB /* AppDelegate.swift */,
-				9AB1C3C22343D03600DEA1CB /* ViewController.swift */,
+				9A791532234D786D0050D2D0 /* HelpingFiles */,
+				9A791531234D78600050D2D0 /* Models */,
+				9A791530234D78500050D2D0 /* ViewControllers */,
 				9AB1C3C42343D03600DEA1CB /* Main.storyboard */,
-				9AB1C3CA2343D03800DEA1CB /* Assets.xcassets */,
-				9AB1C3CC2343D03800DEA1CB /* LaunchScreen.storyboard */,
-				9AB1C3CF2343D03800DEA1CB /* Info.plist */,
-				9AB1C3C72343D03600DEA1CB /* Proximity_Reminders_App.xcdatamodeld */,
+				9A791536234D7CB10050D2D0 /* Info.plist */,
 			);
 			path = "Proximity Reminders App";
 			sourceTree = "<group>";
@@ -74,9 +128,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9AB1C3D22343D03800DEA1CB /* Build configuration list for PBXNativeTarget "Proximity Reminders App" */;
 			buildPhases = (
+				090AEC394E2C5F60D18ADAB0 /* [CP] Check Pods Manifest.lock */,
 				9AB1C3B92343D03600DEA1CB /* Sources */,
 				9AB1C3BA2343D03600DEA1CB /* Frameworks */,
 				9AB1C3BB2343D03600DEA1CB /* Resources */,
+				C75CD05285733FCB05B1ABDD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,14 +189,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		090AEC394E2C5F60D18ADAB0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Proximity Reminders App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C75CD05285733FCB05B1ABDD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Proximity Reminders App/Pods-Proximity Reminders App-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/LocationPicker/LocationPicker.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPicker.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Proximity Reminders App/Pods-Proximity Reminders App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9AB1C3B92343D03600DEA1CB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AED415C234514E9008D658F /* ReminderViewController.swift in Sources */,
 				9AB1C3C32343D03600DEA1CB /* ViewController.swift in Sources */,
 				9AB1C3C12343D03600DEA1CB /* AppDelegate.swift in Sources */,
 				9AB1C3C92343D03600DEA1CB /* Proximity_Reminders_App.xcdatamodeld in Sources */,
+				9AED415E2347B4D2008D658F /* Reminder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +389,7 @@
 		};
 		9AB1C3D32343D03800DEA1CB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2D0DE11EF458A495802B8B0 /* Pods-Proximity Reminders App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +408,7 @@
 		};
 		9AB1C3D42343D03800DEA1CB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40496A4C0A5732F9662F6715 /* Pods-Proximity Reminders App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

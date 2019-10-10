@@ -43,7 +43,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     let whenEnter = data.value(forKey: "whenEnter") as! Bool
                     let locationName = data.value(forKey: "reminderLocationName") as! String
                     
-                   
                     
                     let reminderToAdd = Reminder(remindTo: description, longitude: longitude, latitude: latitude, locationName: locationName, whenEnter: whenEnter)
                     print(reminderToAdd)
@@ -61,7 +60,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             locationManager.startUpdatingLocation()
         }
         }
-
+    // TODO: FOLLOW THE LOGIC TO MAKE ALERTS
 
     func checkLocation(currentLocation: CLLocationCoordinate2D, reminderLocationToCheck compareTo: CLLocation){
 

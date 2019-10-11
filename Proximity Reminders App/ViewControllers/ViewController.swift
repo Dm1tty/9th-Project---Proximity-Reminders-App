@@ -62,12 +62,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //code for editing
-        
-        
-       
-    }
+  
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -77,7 +72,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if (editingStyle == .delete) {
             // handle delete (by removing the data from your array and updating the tableview)
             do {
-                          let context = appDelegate.persistentContainer.viewContext
+                        let context = appDelegate.persistentContainer.viewContext
                         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Reminders")
                        let result = try context.fetch(request)
                      let resultData = result as! [NSManagedObject]
@@ -113,24 +108,46 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         print("locations = \(locValue.latitude) \(locValue.longitude)")
+       
+      
+      
+        
+        
         
         for reminder in reminders{
             
             let location : CLLocation = CLLocation(latitude: reminder.latitude, longitude: reminder.longitude)
             
+            // executes if you are inside of the chosen location
             if isInsideOfRemainder(currentLocation: locValue, reminderLocationToCheck: location) == true{
                 
+                // executes when you user enters location and remainder should pop out when one enters
                 if reminder.isInNow == false && reminder.whenEnter == true{
+                    
+                    let reminderName = "You have entered and you have to:"
+                    let remainderMessage = reminder.remindTo
+                  let reminderAlert = UIAlertController.init(title: reminderName, message: remainderMessage, preferredStyle: .actionSheet)
+                   let okayButton = UIAlertAction(title: "Okay", style: .default, handler: nil)
+                   reminderAlert.addAction(okayButton)
                     print("User entered needed location")
+                    
+                    self.present(reminderAlert, animated: true)
                 }
-                
                 reminder.isInNow = true
                 print("You are currently inside of \(reminder.remindTo)")
             }
                 
             else{
+                
+                // this case executes when user leaves location and remainder should pop out when one exits
                 if reminder.isInNow == true && reminder.whenEnter == false{
                     print("You left and have to \(reminder.remindTo)")
+                    let reminderName = "You have left and you have to:"
+                    let remainderMessage = reminder.remindTo
+                    let reminderAlert = UIAlertController.init(title: reminderName, message: remainderMessage, preferredStyle: .actionSheet)
+                    let okayButton = UIAlertAction(title: "Okay", style: .default, handler: nil)
+                    reminderAlert.addAction(okayButton)
+                    self.present(reminderAlert, animated: true)
                 reminder.isInNow = false
                 }
             }

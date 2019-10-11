@@ -53,7 +53,7 @@ class ReminderViewController: UIViewController {
             remindWhenEnter = true
         }
     
-        let reminder = Reminder(remindTo: reminderText, longitude: chosenLocation!.coordinate.longitude, latitude: chosenLocation!.coordinate.latitude, locationName: chosenLocation?.name ?? "", whenEnter: remindWhenEnter, isInNow: false)
+        let reminder = Reminder(remindTo: reminderText, longitude: chosenLocation!.coordinate.longitude, latitude: chosenLocation!.coordinate.latitude, locationName: chosenLocation?.name ?? chosenLocation!.address, whenEnter: remindWhenEnter, isInNow: false)
         saveData(reminderToSave: reminder)
     }
     

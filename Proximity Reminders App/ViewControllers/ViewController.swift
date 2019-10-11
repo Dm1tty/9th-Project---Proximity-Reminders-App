@@ -166,6 +166,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
        }
     
+    // shows navigation bar
+       override func viewWillAppear(_ animated: Bool) {
+                 super.viewWillAppear(animated)
+                 navigationController?.setNavigationBarHidden(false, animated: animated)
+             }
 }
+
 
 

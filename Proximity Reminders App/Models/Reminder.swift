@@ -15,12 +15,14 @@ class Reminder{
     var latitude: Double
     var locationName: String
     var whenEnter: Bool
+    var isInNow: Bool
     
-    init(remindTo: String, longitude: Double, latitude: Double, locationName: String, whenEnter: Bool) {
+    init(remindTo: String, longitude: Double, latitude: Double, locationName: String, whenEnter: Bool, isInNow: Bool) {
         self.remindTo = remindTo
         self.longitude = longitude
         self.latitude = latitude
         self.locationName = locationName
         self.whenEnter  = whenEnter
+        self.isInNow = isInNow
     }
 }

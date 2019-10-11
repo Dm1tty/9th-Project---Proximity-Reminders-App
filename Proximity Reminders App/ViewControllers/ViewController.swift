@@ -16,18 +16,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var reminders = [Reminder]()
     let locationManager = CLLocationManager()
-    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
-        
+        tableView.reloadData()
         // Do any additional setup after loading the view.
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+    
         let context = appDelegate.persistentContainer.viewContext
-
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Reminders")
         
         request.returnsObjectsAsFaults = false
@@ -44,7 +45,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     let locationName = data.value(forKey: "reminderLocationName") as! String
                     
                     
-                    let reminderToAdd = Reminder(remindTo: description, longitude: longitude, latitude: latitude, locationName: locationName, whenEnter: whenEnter)
+                    let reminderToAdd = Reminder(remindTo: description, longitude: longitude, latitude: latitude, locationName: locationName, whenEnter: whenEnter, isInNow: false)
                     print(reminderToAdd)
                     reminders.append(reminderToAdd)
         }
@@ -60,9 +61,40 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             locationManager.startUpdatingLocation()
         }
         }
-    // TODO: FOLLOW THE LOGIC TO MAKE ALERTS
 
-    func checkLocation(currentLocation: CLLocationCoordinate2D, reminderLocationToCheck compareTo: CLLocation){
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //code for editing
+        
+        
+       
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+            do {
+                          let context = appDelegate.persistentContainer.viewContext
+                        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Reminders")
+                       let result = try context.fetch(request)
+                     let resultData = result as! [NSManagedObject]
+                print("This is to be deleted: \(resultData[indexPath.row])")
+                context.delete(resultData[indexPath.row])
+                   }
+                
+                   catch{
+                       print(error)
+                   }
+            reminders.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+    }
+    
+
+    func isInsideOfRemainder(currentLocation: CLLocationCoordinate2D, reminderLocationToCheck compareTo: CLLocation) -> Bool{
 
         let location = CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
         let distanceThreshold = 20.0 // meters
@@ -70,25 +102,43 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if location.distance(from: CLLocation.init(latitude: compareTo.coordinate.latitude,
                                                    longitude: compareTo.coordinate.longitude)) < distanceThreshold
         {
-            // do a
-            print("You are inside")
+            // executes if you are in 20 meters from your point
+            return true
         } else {
-            print("You are outside")
-            // do b
-        }
+            // executes if you are outside
+            return false
+                    }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         print("locations = \(locValue.latitude) \(locValue.longitude)")
+        
         for reminder in reminders{
-            print("Checking:\(reminder.remindTo)")
+            
             let location : CLLocation = CLLocation(latitude: reminder.latitude, longitude: reminder.longitude)
-        checkLocation(currentLocation: locValue, reminderLocationToCheck: location)
+            
+            if isInsideOfRemainder(currentLocation: locValue, reminderLocationToCheck: location) == true{
+                
+                if reminder.isInNow == false && reminder.whenEnter == true{
+                    print("User entered needed location")
+                }
+                
+                reminder.isInNow = true
+                print("You are currently inside of \(reminder.remindTo)")
+            }
+                
+            else{
+                if reminder.isInNow == true && reminder.whenEnter == false{
+                    print("You left and have to \(reminder.remindTo)")
+                reminder.isInNow = false
+                }
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     
         return reminders.count
        }
        
@@ -98,5 +148,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.detailTextLabel?.text = reminders[indexPath.row].locationName
         return cell
        }
+    
 }
+
 

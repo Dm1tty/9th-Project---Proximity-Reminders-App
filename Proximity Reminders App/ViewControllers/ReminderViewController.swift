@@ -28,6 +28,10 @@ class ReminderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+      
 
         // Do any additional setup after loading the view.
     }
@@ -49,7 +53,7 @@ class ReminderViewController: UIViewController {
             remindWhenEnter = true
         }
     
-        let reminder = Reminder(remindTo: reminderText, longitude: chosenLocation!.coordinate.longitude, latitude: chosenLocation!.coordinate.latitude, locationName: chosenLocation?.name ?? "", whenEnter: remindWhenEnter)
+        let reminder = Reminder(remindTo: reminderText, longitude: chosenLocation!.coordinate.longitude, latitude: chosenLocation!.coordinate.latitude, locationName: chosenLocation?.name ?? "", whenEnter: remindWhenEnter, isInNow: false)
         saveData(reminderToSave: reminder)
     }
     
@@ -102,8 +106,10 @@ class ReminderViewController: UIViewController {
     }
     
     func saveData(reminderToSave: Reminder){
+        
         //reference to appDelegate container
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        
         //context from this container
         let managedContext = appDelegate.persistentContainer.viewContext
         
@@ -125,9 +131,8 @@ class ReminderViewController: UIViewController {
             let saveCompletion = UIAlertController(title: "Saved", message: "Your reminder has been saved", preferredStyle: .alert)
             let action1 = UIAlertAction(title: "Main Menu", style: .default) { (action:UIAlertAction) in
                 print("You've pressed default")
-                
-                self.navigationController?.popViewController(animated: true)
-                
+
+                self.performSegue(withIdentifier: "unwindToMainScreen", sender: nil)
             }
             saveCompletion.addAction(action1)
             self.present(saveCompletion, animated: true, completion: nil)
@@ -136,4 +141,10 @@ class ReminderViewController: UIViewController {
             print("Failed saving")
         }
     }
+    
+    // hides navigation bar
+    override func viewWillAppear(_ animated: Bool) {
+              super.viewWillAppear(animated)
+              navigationController?.setNavigationBarHidden(true, animated: animated)
+          }
 }

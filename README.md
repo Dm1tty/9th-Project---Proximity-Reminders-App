@@ -30,6 +30,8 @@
 **Received Grade:**
   - Meets Expectations
   
+**Screenshots:**
+  
 ![Add Reminder](https://i.imgur.com/KvYwY21.png)
 ![Main Menu](https://i.imgur.com/N7qyc80.png)
 ![Reminder](https://i.imgur.com/U9VgRBC.png)
